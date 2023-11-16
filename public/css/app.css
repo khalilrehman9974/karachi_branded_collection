@@ -1,0 +1,86 @@
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #007bff;
+    border-color: #006fe6;
+    color: #fff;
+    padding: 0 10px;
+    margin-top: .31rem;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.main-wrapper{
+    padding-left: 265px;
+}
+
+.navbar-header{
+    font-size: 25px;
+    color: #ffffff !important;
+}
+
+.advance-search-btn{
+    margin-left: 6px;
+}
+
+.btn-export{
+    margin-left: 6px;
+}
+
+.m-l-r-15 {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/***** Progress circle css Start *****/
+.success-tr-remove {
+    background-color: #abf6ab !important;
+}
+.fail-tr {
+    background-color: #ffc0cb !important;
+}
+.error-tr {
+    background-color: #f64d6b !important;
+    color:#fff;
+}
+/***** Progress circle css End *****/
+.sticky {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    background-color: #d9dcf2;
+    padding: 10px;
+    z-index: 100;
+}
+
+.collaps-button{
+    color: #fff !important;
+}
+
+.table-margin{
+    margin-right: 15px; margin-left: 15px
+}
+
+.search-btn{
+    margin-top: 33px;
+}
+
+.spinner{
+    display: none;
+    margin-left: -23px
+}
+
+.box-bg-info{
+    background-color: #0C0C0C !important;
+}
+
+.more-info-bg{
+    background-color: #F2CC7B !important;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,127 @@
+@extends('layouts.app')
+@section('content')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            @if(session()->has('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <h1>Purchase Detail</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-left">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('purchase.purchases') }}">List of Purchases</a>
+                            </li>
+                            <li class="breadcrumb-item active">Purchase Detail</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <div class="card card-primary card-tabs">
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <table id="example1" class="table table-bordered"
+                                       style="overflow-scrolling: auto; max-height: 5px">
+                                    <tbody>
+                                    <tr>
+                                        <td><b>Invoice ID</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ $purchaseMaster->id }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Date</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ \Carbon\Carbon::parse($purchaseMaster->date)->format('d-m-Y') }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Party</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ $purchaseMaster->partyName }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Brand</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ $purchaseMaster->brandName }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #000000; color: #FFFFFF"><b>Total Quantity</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ $purchaseMaster->totalQuantity }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td  style="background-color: #000000; color: #FFFFFF"><b>Total Amount</b></td>
+                                        <td class="project-actions text-left">
+                                            {{ $purchaseMaster->totalAmount  }}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Items Detail</h3>
+
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <table id="example1" class="table table-bordered"
+                                       style="overflow-scrolling: auto; max-height: 5px">
+                                    <thead class="text-nowrap">
+                                    <tr>
+                                        {{--                                                    <th><input type="checkbox" checked></th>--}}
+                                        <th>Item</th>
+                                        <th>Rate</th>
+                                        <th>Quantity</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($purchaseDetail as $purchaseDet)
+                                            <tr>
+                                                <td class="project-actions text-left">
+                                                    {{ $purchaseDet->productName }}
+                                                </td>
+
+                                                <td class="project-actions text-left">
+                                                    {{ $purchaseDet->price }}
+                                                </td>
+
+                                                <td class="project-actions text-left">
+                                                    {{ $purchaseDet->quantity }}
+                                                </td>
+
+                                                <td class="project-actions text-left">
+                                                    {{ $purchaseDet->amount }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{{ route('product.products') }}" class="btn btn-secondary float-right">Back</a>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+@endsection

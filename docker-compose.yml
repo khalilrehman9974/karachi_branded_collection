@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    container_name: integration_2.0_ui
+    build:
+      context: .
+      dockerfile: docker-image-i2ui/Dockerfile
+    ports:
+      - 8090:80
+      - 443:443
+  #    volumes:
+  #        - "./:/var/www/"
+  #        - "./docker-image-i2ui/my-site.conf:/etc/apache2/sites-available/my-site.conf"
+
